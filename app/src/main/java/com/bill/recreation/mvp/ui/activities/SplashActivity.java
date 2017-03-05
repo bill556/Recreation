@@ -72,15 +72,15 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startLogoOuter() {
-        YoYo.with(Techniques.RubberBand).duration(1000).playOn(mLogoOuterIv);
+        YoYo.with(Techniques.RotateIn).duration(1000).playOn(mLogoOuterIv);
     }
 
     private void startShowAppName() {
-        YoYo.with(Techniques.FadeIn).duration(1000).playOn(mAppNameTv);
+        YoYo.with(Techniques.BounceInLeft).duration(1500).playOn(mAppNameTv);
     }
 
     private void startShowMySign(){
-        YoYo.with(Techniques.FadeIn).duration(1500).playOn(mMySignTV);
+        YoYo.with(Techniques.BounceInRight).duration(1500).playOn(mMySignTV);
     }
 
     private void finishActivity() {
