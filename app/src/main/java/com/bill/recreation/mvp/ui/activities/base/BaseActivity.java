@@ -31,11 +31,13 @@ import com.bill.recreation.di.module.ActivityModule;
 import com.bill.recreation.mvp.presenter.base.BasePresenter;
 import com.bill.recreation.mvp.ui.activities.AboutActivity;
 import com.bill.recreation.mvp.ui.activities.NewsActivity;
+import com.bill.recreation.mvp.ui.activities.NewsChannelActivity;
 import com.bill.recreation.mvp.ui.activities.NewsDetailActivity;
 import com.bill.recreation.mvp.ui.activities.PhotoActivity;
 import com.bill.recreation.mvp.ui.activities.PhotoDetailActivity;
 import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.utils.NetUtil;
+import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.socks.library.KLog;
 import com.squareup.leakcanary.RefWatcher;
@@ -108,8 +110,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     private void initNightModeSwitch() {
         if (this instanceof NewsActivity || this instanceof PhotoActivity) {
             MenuItem menuNightMode = mBaseNavView.getMenu().findItem(R.id.nav_night_mode);
-            SwitchCompat dayNightSwitch = (SwitchCompat) MenuItemCompat
-                    .getActionView(menuNightMode);
+            SwitchCompat dayNightSwitch = (SwitchCompat) MenuItemCompat.getActionView(menuNightMode);
             setCheckedState(dayNightSwitch);
             setCheckedEvent(dayNightSwitch);
         }
@@ -178,6 +179,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                             break;
                         case R.id.nav_video:
                             Toast.makeText(BaseActivity.this, "施工准备中...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case R.id.nav_about:
+                            mClass = AboutActivity.class;
                             break;
                         case R.id.nav_night_mode:
                             break;

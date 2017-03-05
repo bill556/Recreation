@@ -28,6 +28,7 @@ import com.bill.recreation.mvp.ui.fragment.NewsListFragment;
 import com.bill.recreation.mvp.view.NewsView;
 import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.utils.RxBus;
+import com.bill.recreation.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
