@@ -14,6 +14,7 @@
         <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
     </style>
 
+    <!-- 用于开启滑动返回功能的 Activity -->
     <style name="BaseAppTheme.NoTrans">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
