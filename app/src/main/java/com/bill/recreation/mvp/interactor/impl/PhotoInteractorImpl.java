@@ -1,14 +1,14 @@
 package com.bill.recreation.mvp.interactor.impl;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
 import com.bill.recreation.common.HostType;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.entity.GirlData;
 import com.bill.recreation.mvp.entity.PhotoGirl;
-import com.bill.recreation.mvp.interactor.PhotoInteractor;
 import com.bill.recreation.repository.network.RetrofitManager;
 import com.bill.recreation.utils.TransformUtils;
+import com.bill.recreation.R;
+import com.bill.recreation.mvp.interactor.PhotoInteractor;
 
 import java.util.List;
 

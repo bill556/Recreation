@@ -9,6 +9,7 @@ import com.bill.recreation.common.HostType;
 import com.bill.recreation.mvp.entity.GirlData;
 import com.bill.recreation.mvp.entity.NewsDetail;
 import com.bill.recreation.mvp.entity.NewsSummary;
+import com.bill.recreation.mvp.entity.VideoData;
 import com.bill.recreation.utils.NetUtil;
 import com.socks.library.KLog;
 
@@ -178,5 +179,9 @@ public class RetrofitManager {
 
     public Observable<GirlData> getPhotoListObservable(int size, int page) {
         return mNewsService.getPhotoList(size, page);
+    }
+
+    public Observable<VideoData> getVideoListObservable(int page, int size) {
+        return mNewsService.getVideosList(page, size);
     }
 }

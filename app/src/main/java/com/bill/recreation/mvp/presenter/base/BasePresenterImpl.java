@@ -2,8 +2,8 @@ package com.bill.recreation.mvp.presenter.base;
 
 import android.support.annotation.NonNull;
 
-import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.view.base.BaseView;
+import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.utils.MyUtils;
 
 import rx.Subscription;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_splash"
-    tools:context=".mvp.ui.activities.SplashActivity">
+    tools:context="com.bill.recreation.mvp.ui.activities.SplashActivity">
 
     <ImageView
         android:id="@+id/logo_outer_iv"

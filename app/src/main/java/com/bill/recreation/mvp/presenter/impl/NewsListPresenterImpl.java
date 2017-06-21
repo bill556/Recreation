@@ -1,12 +1,12 @@
 package com.bill.recreation.mvp.presenter.impl;
 
 import com.bill.recreation.mvp.entity.NewsSummary;
-import com.bill.recreation.common.LoadNewsType;
 import com.bill.recreation.mvp.interactor.NewsListInteractor;
+import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
+import com.bill.recreation.common.LoadNewsType;
 import com.bill.recreation.mvp.interactor.impl.NewsListInteractorImpl;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.presenter.NewsListPresenter;
-import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
 import com.bill.recreation.mvp.view.NewsListView;
 
 import java.util.List;

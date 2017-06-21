@@ -21,6 +21,7 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.Bugly;
 
+import cn.bingoogolapple.swipebacklayout.BGASwipeBackManager;
 import de.greenrobot.dao.query.QueryBuilder;
 
 /**
@@ -43,8 +44,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Bugly.init(getApplicationContext(), "900059132", false);
+
+        // 必须在 Application 的 onCreate 方法中执行 BGASwipeBackManager.getInstance().init(this) 来初始化滑动返回
+        BGASwipeBackManager.getInstance().init(this);
 
         sAppContext = this;
         initLeakCanary();

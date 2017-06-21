@@ -10,16 +10,16 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-import com.bill.recreation.R;
 import com.bill.recreation.event.ChannelItemMoveEvent;
-import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.listener.OnItemClickListener;
 import com.bill.recreation.mvp.presenter.impl.NewsChannelPresenterImpl;
 import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 import com.bill.recreation.mvp.ui.adapter.NewsChannelAdapter;
-import com.bill.recreation.widget.ItemDragHelperCallback;
 import com.bill.recreation.mvp.view.NewsChannelView;
 import com.bill.recreation.utils.RxBus;
+import com.bill.recreation.widget.ItemDragHelperCallback;
+import com.bill.recreation.R;
+import com.bill.recreation.greendao.NewsChannelTable;
 
 import java.util.List;
 

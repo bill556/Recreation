@@ -20,14 +20,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
-import com.bill.recreation.common.LoadNewsType;
 import com.bill.recreation.event.ScrollToTopEvent;
-import com.bill.recreation.mvp.entity.NewsSummary;
 import com.bill.recreation.mvp.entity.NewsPhotoDetail;
-import com.bill.recreation.mvp.presenter.impl.NewsListPresenterImpl;
+import com.bill.recreation.mvp.entity.NewsSummary;
 import com.bill.recreation.mvp.ui.activities.NewsDetailActivity;
+import com.bill.recreation.R;
+import com.bill.recreation.common.LoadNewsType;
+import com.bill.recreation.mvp.presenter.impl.NewsListPresenterImpl;
 import com.bill.recreation.mvp.ui.activities.NewsPhotoDetailActivity;
 import com.bill.recreation.mvp.ui.adapter.NewsListAdapter;
 import com.bill.recreation.mvp.ui.fragment.base.BaseFragment;

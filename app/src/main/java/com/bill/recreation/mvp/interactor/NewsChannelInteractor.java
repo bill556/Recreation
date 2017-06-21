@@ -1,7 +1,7 @@
 package com.bill.recreation.mvp.interactor;
 
-import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.listener.RequestCallBack;
+import com.bill.recreation.greendao.NewsChannelTable;
 
 import rx.Subscription;
 

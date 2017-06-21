@@ -1,12 +1,12 @@
 package com.bill.recreation.mvp.interactor.impl;
 
 import com.bill.recreation.App;
+import com.bill.recreation.utils.TransformUtils;
 import com.bill.recreation.R;
 import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.interactor.NewsInteractor;
 import com.bill.recreation.repository.db.NewsChannelTableManager;
-import com.bill.recreation.utils.TransformUtils;
 
 import java.util.List;
 

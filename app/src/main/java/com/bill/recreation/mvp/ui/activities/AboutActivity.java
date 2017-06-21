@@ -4,8 +4,8 @@ import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.widget.TextView;
 
-import com.bill.recreation.R;
 import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
+import com.bill.recreation.R;
 
 import butterknife.BindView;
 

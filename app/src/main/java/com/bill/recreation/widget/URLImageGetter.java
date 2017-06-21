@@ -8,10 +8,10 @@ import android.text.Html;
 import android.widget.TextView;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
-import com.bill.recreation.common.HostType;
 import com.bill.recreation.repository.network.RetrofitManager;
 import com.bill.recreation.utils.MyUtils;
+import com.bill.recreation.R;
+import com.bill.recreation.common.HostType;
 import com.socks.library.KLog;
 
 import java.io.File;

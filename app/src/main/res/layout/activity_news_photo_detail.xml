@@ -8,7 +8,7 @@
     android:background="@color/black"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
-    tools:context=".mvp.ui.activities.NewsPhotoDetailActivity">
+    tools:context="com.bill.recreation.mvp.ui.activities.NewsPhotoDetailActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

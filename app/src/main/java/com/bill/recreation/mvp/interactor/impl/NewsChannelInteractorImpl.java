@@ -1,13 +1,13 @@
 package com.bill.recreation.mvp.interactor.impl;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
-import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.interactor.NewsChannelInteractor;
 import com.bill.recreation.repository.db.NewsChannelTableManager;
 import com.bill.recreation.utils.TransformUtils;
+import com.bill.recreation.R;
+import com.bill.recreation.greendao.NewsChannelTable;
 import com.socks.library.KLog;
 
 import java.util.HashMap;

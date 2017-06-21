@@ -18,12 +18,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bill.recreation.App;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.bill.recreation.App;
 import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
 import com.bill.recreation.mvp.entity.NewsDetail;

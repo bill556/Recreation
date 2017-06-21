@@ -1,10 +1,10 @@
 package com.bill.recreation.mvp.presenter.impl;
 
+import com.bill.recreation.mvp.interactor.impl.NewsDetailInteractorImpl;
+import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
 import com.bill.recreation.mvp.entity.NewsDetail;
 import com.bill.recreation.mvp.interactor.NewsDetailInteractor;
-import com.bill.recreation.mvp.interactor.impl.NewsDetailInteractorImpl;
 import com.bill.recreation.mvp.presenter.NewsDetailPresenter;
-import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
 import com.bill.recreation.mvp.view.NewsDetailView;
 
 import javax.inject.Inject;

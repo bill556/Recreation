@@ -8,13 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
-import com.bill.recreation.event.PhotoDetailOnClickEvent;
 import com.bill.recreation.mvp.entity.NewsPhotoDetail;
 import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 import com.bill.recreation.mvp.ui.adapter.PagerAdapter.PhotoPagerAdapter;
 import com.bill.recreation.mvp.ui.fragment.PhotoDetailFragment;
+import com.bill.recreation.R;
+import com.bill.recreation.event.PhotoDetailOnClickEvent;
 import com.bill.recreation.widget.PhotoViewPager;
 import com.bill.recreation.utils.RxBus;
 

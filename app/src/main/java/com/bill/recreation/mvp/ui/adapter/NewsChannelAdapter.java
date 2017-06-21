@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bill.recreation.App;
+import com.bill.recreation.listener.OnItemClickListener;
+import com.bill.recreation.mvp.ui.adapter.base.BaseRecyclerViewAdapter;
+import com.bill.recreation.utils.MyUtils;
+import com.bill.recreation.widget.ItemDragHelperCallback;
 import com.bill.recreation.R;
 import com.bill.recreation.event.ChannelItemMoveEvent;
 import com.bill.recreation.greendao.NewsChannelTable;
-import com.bill.recreation.listener.OnItemClickListener;
-import com.bill.recreation.mvp.ui.adapter.base.BaseRecyclerViewAdapter;
-import com.bill.recreation.widget.ItemDragHelperCallback;
 import com.bill.recreation.utils.ClickUtil;
-import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.utils.RxBus;
 
 import java.util.Collections;

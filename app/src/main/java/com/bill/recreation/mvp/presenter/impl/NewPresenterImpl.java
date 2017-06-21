@@ -1,10 +1,10 @@
 package com.bill.recreation.mvp.presenter.impl;
 
-import com.bill.recreation.greendao.NewsChannelTable;
-import com.bill.recreation.mvp.interactor.NewsInteractor;
 import com.bill.recreation.mvp.interactor.impl.NewsInteractorImpl;
 import com.bill.recreation.mvp.presenter.NewsPresenter;
 import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
+import com.bill.recreation.greendao.NewsChannelTable;
+import com.bill.recreation.mvp.interactor.NewsInteractor;
 import com.bill.recreation.mvp.view.NewsView;
 
 import java.util.List;

@@ -1,13 +1,13 @@
 package com.bill.recreation.mvp.interactor.impl;
 
 import com.bill.recreation.common.ApiConstants;
-import com.bill.recreation.common.HostType;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.entity.NewsSummary;
 import com.bill.recreation.mvp.interactor.NewsListInteractor;
 import com.bill.recreation.repository.network.RetrofitManager;
 import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.utils.TransformUtils;
+import com.bill.recreation.common.HostType;
 import com.socks.library.KLog;
 
 

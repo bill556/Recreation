@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bill.recreation.App;
+import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.di.component.DaggerFragmentComponent;
 import com.bill.recreation.di.component.FragmentComponent;
 import com.bill.recreation.di.module.FragmentModule;
 import com.bill.recreation.mvp.presenter.base.BasePresenter;
-import com.bill.recreation.utils.MyUtils;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;

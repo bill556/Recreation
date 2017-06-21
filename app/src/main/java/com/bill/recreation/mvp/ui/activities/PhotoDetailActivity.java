@@ -14,16 +14,16 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
 import com.bill.recreation.common.PhotoRequestType;
-import com.bill.recreation.di.scope.ContextLife;
 import com.bill.recreation.mvp.presenter.impl.PhotoDetailPresenterImpl;
 import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 import com.bill.recreation.mvp.view.PhotoDetailView;
 import com.bill.recreation.utils.MyUtils;
 import com.bill.recreation.utils.SystemUiVisibilityUtil;
 import com.bill.recreation.widget.PullBackLayout;
+import com.bill.recreation.R;
+import com.bill.recreation.di.scope.ContextLife;
 import com.socks.library.KLog;
 import com.squareup.picasso.Picasso;
 

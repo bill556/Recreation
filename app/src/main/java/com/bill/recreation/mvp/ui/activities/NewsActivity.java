@@ -15,20 +15,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.bill.recreation.R;
-import com.bill.recreation.annotation.BindValues;
 import com.bill.recreation.common.Constants;
 import com.bill.recreation.event.ChannelChangeEvent;
 import com.bill.recreation.event.ScrollToTopEvent;
-import com.bill.recreation.greendao.NewsChannelTable;
-import com.bill.recreation.mvp.presenter.impl.NewPresenterImpl;
 import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 import com.bill.recreation.mvp.ui.adapter.PagerAdapter.NewsFragmentPagerAdapter;
 import com.bill.recreation.mvp.ui.fragment.NewsListFragment;
-import com.bill.recreation.mvp.view.NewsView;
 import com.bill.recreation.utils.MyUtils;
+import com.bill.recreation.R;
+import com.bill.recreation.annotation.BindValues;
+import com.bill.recreation.greendao.NewsChannelTable;
+import com.bill.recreation.mvp.presenter.impl.NewPresenterImpl;
+import com.bill.recreation.mvp.view.NewsView;
 import com.bill.recreation.utils.RxBus;
-import com.bill.recreation.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;

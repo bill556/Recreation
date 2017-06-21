@@ -1,12 +1,12 @@
 package com.bill.recreation.repository.db;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
 import com.bill.recreation.common.ApiConstants;
 import com.bill.recreation.common.Constants;
+import com.bill.recreation.utils.MyUtils;
+import com.bill.recreation.R;
 import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.greendao.NewsChannelTableDao;
-import com.bill.recreation.utils.MyUtils;
 
 import java.util.Arrays;
 import java.util.List;

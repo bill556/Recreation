@@ -7,10 +7,10 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
-import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.interactor.PhotoDetailInteractor;
 import com.bill.recreation.utils.TransformUtils;
+import com.bill.recreation.R;
+import com.bill.recreation.listener.RequestCallBack;
 import com.socks.library.KLog;
 import com.squareup.picasso.Picasso;
 

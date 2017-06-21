@@ -2,10 +2,10 @@ package com.bill.recreation.mvp.presenter.impl;
 
 import com.bill.recreation.common.Constants;
 import com.bill.recreation.event.ChannelChangeEvent;
-import com.bill.recreation.greendao.NewsChannelTable;
-import com.bill.recreation.mvp.interactor.impl.NewsChannelInteractorImpl;
 import com.bill.recreation.mvp.presenter.NewsChannelPresenter;
 import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
+import com.bill.recreation.greendao.NewsChannelTable;
+import com.bill.recreation.mvp.interactor.impl.NewsChannelInteractorImpl;
 import com.bill.recreation.mvp.view.NewsChannelView;
 import com.bill.recreation.utils.RxBus;
 

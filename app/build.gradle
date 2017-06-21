@@ -3,12 +3,15 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.2'
+    dexOptions {
+        jumboMode true
+    }
 
     defaultConfig {
         applicationId "com.bill.recreation"
-        minSdkVersion 15
-        targetSdkVersion 22
+        minSdkVersion 16
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
@@ -77,7 +80,7 @@ dependencies {
     //View注入框架
     compile 'com.jakewharton:butterknife:8.0.1'
 
-    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.0.1'
 
     //依赖注入框
@@ -130,4 +133,9 @@ dependencies {
 
     //bugly
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+
+    compile 'com.github.CarGuo:GSYVideoPlayer:v1.6.0'
+
+//    //滑动返回
+    compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.8@aar'
 }

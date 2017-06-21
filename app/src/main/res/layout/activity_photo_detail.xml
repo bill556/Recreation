@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/black"
-    tools:context=".mvp.ui.activities.NewsPhotoDetailActivity">
+    tools:context="com.bill.recreation.mvp.ui.activities.NewsPhotoDetailActivity">
 
     <com.bill.recreation.widget.PullBackLayout
         android:id="@+id/pull_back_layout"

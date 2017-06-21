@@ -6,10 +6,11 @@ import android.view.ViewGroup;
 
 import com.bill.recreation.App;
 import com.bill.recreation.mvp.ui.adapter.base.BaseRecyclerViewAdapter;
-import com.bill.recreation.utils.DimenUtil;
 import com.bill.recreation.widget.RatioImageView;
 import com.bill.recreation.R;
-import com.bill.recreation.mvp.entity.PhotoGirl;
+import com.bill.recreation.mvp.entity.Video;
+import com.bill.recreation.utils.DimenUtil;
+import com.shuyu.gsyvideoplayer.utils.ListVideoUtil;
 import com.socks.library.KLog;
 import com.squareup.picasso.Picasso;
 
@@ -26,14 +27,16 @@ import butterknife.ButterKnife;
  * @author Bill
  * @version 1.0 2016/11/10
  */
-public class PhotoListAdapter extends BaseRecyclerViewAdapter<PhotoGirl> {
+public class VideoPlayerListAdapter extends BaseRecyclerViewAdapter<Video> {
 
     private int width = (int) (DimenUtil.getScreenSize() / 2);
 
     private Map<Integer, Integer> mHeights = new HashMap<>();
 
+    private ListVideoUtil listVideoUtil;
+
     @Inject
-    public PhotoListAdapter() {
+    public VideoPlayerListAdapter() {
         super(null);
     }
 
@@ -93,7 +96,7 @@ public class PhotoListAdapter extends BaseRecyclerViewAdapter<PhotoGirl> {
                     .into(((ItemViewHolder) holder).mPhotoIv);*/
 
 
-            Picasso.with(App.getAppContext()).load(mList.get(position).getUrl())
+            Picasso.with(App.getAppContext()).load(mList.get(position).getData().getItemList().get(0).getData().getAuthor().getIcon())
                     .placeholder(R.color.image_place_holder)
                     .error(R.drawable.ic_load_fail)
                     .into(((ItemViewHolder) holder).mPhotoIv);
@@ -144,5 +147,9 @@ public class PhotoListAdapter extends BaseRecyclerViewAdapter<PhotoGirl> {
             super(view);
             ButterKnife.bind(this, view);
         }
+    }
+
+    public void setListVideoUtil(ListVideoUtil listVideoUtil) {
+        this.listVideoUtil = listVideoUtil;
     }
 }

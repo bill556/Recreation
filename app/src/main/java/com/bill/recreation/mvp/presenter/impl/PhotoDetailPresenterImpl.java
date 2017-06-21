@@ -11,12 +11,12 @@ import android.os.Build;
 import android.provider.MediaStore;
 
 import com.bill.recreation.App;
-import com.bill.recreation.R;
 import com.bill.recreation.common.PhotoRequestType;
+import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
+import com.bill.recreation.R;
 import com.bill.recreation.listener.RequestCallBack;
 import com.bill.recreation.mvp.interactor.impl.PhotoDetailInteractorImpl;
 import com.bill.recreation.mvp.presenter.PhotoDetailPresenter;
-import com.bill.recreation.mvp.presenter.base.BasePresenterImpl;
 import com.bill.recreation.mvp.view.PhotoDetailView;
 import com.socks.library.KLog;
 

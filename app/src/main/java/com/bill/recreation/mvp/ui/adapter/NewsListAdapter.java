@@ -8,15 +8,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bill.recreation.App;
-import com.bill.recreation.R;
 import com.bill.recreation.listener.OnItemClickListener;
 import com.bill.recreation.mvp.entity.NewsSummary;
 import com.bill.recreation.mvp.ui.adapter.base.BaseRecyclerViewAdapter;
 import com.bill.recreation.utils.DimenUtil;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bill.recreation.R;
 
 import java.util.List;
 

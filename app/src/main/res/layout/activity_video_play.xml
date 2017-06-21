@@ -26,10 +26,10 @@
                 android:fitsSystemWindows="true"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="@string/photo" />
+                app:title="@string/video" />
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_photo" />
+        <include layout="@layout/content_video_player" />
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

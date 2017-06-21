@@ -17,20 +17,23 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bill.recreation.common.Constants;
-import com.bill.recreation.listener.OnItemClickListener;
-import com.bill.recreation.mvp.entity.PhotoGirl;
-import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
-import com.bill.recreation.mvp.view.PhotoView;
+import com.bill.recreation.mvp.ui.adapter.VideoPlayerListAdapter;
 import com.bill.recreation.R;
 import com.bill.recreation.annotation.BindValues;
+import com.bill.recreation.common.Constants;
 import com.bill.recreation.common.LoadNewsType;
-import com.bill.recreation.mvp.presenter.impl.PhotoPresenterImpl;
-import com.bill.recreation.mvp.ui.adapter.PhotoListAdapter;
+import com.bill.recreation.listener.OnItemClickListener;
+import com.bill.recreation.mvp.entity.Video;
+import com.bill.recreation.mvp.presenter.impl.VideoPlayerPresenterImpl;
+import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
+import com.bill.recreation.mvp.view.VideoPlayerView;
 import com.bill.recreation.utils.NetUtil;
+import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
+import com.shuyu.gsyvideoplayer.utils.ListVideoUtil;
 
 import java.util.List;
 
@@ -40,15 +43,16 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * @author Bill
- * @version 1.0 2016/11/10
+ * author: Bill
+ * created on: 17/3/7 上午10:11
+ * description: 视频播放
  */
 @BindValues(mIsHasNavigationView = true)
-public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefreshLayout.OnRefreshListener {
+public class VideoPlayerActivity extends BaseActivity implements VideoPlayerView, SwipeRefreshLayout.OnRefreshListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.photo_rv)
-    RecyclerView mPhotoRv;
+    @BindView(R.id.video_rv)
+    RecyclerView mVideoRv;
     @BindView(R.id.nav_view)
     NavigationView mNavView;
     @BindView(R.id.drawer_layout)
@@ -61,19 +65,23 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
     TextView mEmptyView;
     @BindView(R.id.fab)
     FloatingActionButton mFab;
+    @BindView(R.id.video_full_container)
+    FrameLayout videoFullContainer;
 
     @Inject
-    PhotoPresenterImpl mPhotoPresenter;
+    VideoPlayerPresenterImpl mVideoPresenter;
     @Inject
-    PhotoListAdapter mPhotoListAdapter;
+    VideoPlayerListAdapter mVideoListAdapter;
     @Inject
     Activity mActivity;
 
     private boolean mIsAllLoaded;
 
+    ListVideoUtil listVideoUtil;
+
     @Override
     public int getLayoutId() {
-        return R.layout.activity_photo;
+        return R.layout.activity_video_play;
     }
 
     @Override
@@ -94,6 +102,7 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
         initRecyclerView();
         setAdapterItemClickEvent();
         initPresenter();
+        listVideoUtil.setHideActionBar(true);
     }
 
     private void initSwipeRefreshLayout() {
@@ -102,15 +111,19 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
     }
 
     private void initRecyclerView() {
-        mPhotoRv.setHasFixedSize(true);
-        mPhotoRv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        mPhotoRv.setItemAnimator(new DefaultItemAnimator());
-        mPhotoRv.setAdapter(mPhotoListAdapter);
+        mVideoRv.setHasFixedSize(true);
+        mVideoRv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mVideoRv.setItemAnimator(new DefaultItemAnimator());
+        mVideoRv.setAdapter(mVideoListAdapter);
         setRvScrollEvent();
+        listVideoUtil = new ListVideoUtil(this);
+        listVideoUtil.setFullViewContainer(videoFullContainer);
+        listVideoUtil.setHideStatusBar(true);
+        mVideoListAdapter.setListVideoUtil(listVideoUtil);
     }
 
     private void setRvScrollEvent() {
-        mPhotoRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        mVideoRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -125,9 +138,9 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
                         (newState == RecyclerView.SCROLL_STATE_IDLE) &&
                         ((lastVisibleItemPosition[0] >= totalItemCount - 1) ||
                                 (lastVisibleItemPosition[1] >= totalItemCount - 1))) {
-                    mPhotoPresenter.loadMore();
-                    mPhotoListAdapter.showFooter();
-                    mPhotoRv.scrollToPosition(mPhotoListAdapter.getItemCount() - 1);
+                    mVideoPresenter.loadMore();
+                    mVideoListAdapter.showFooter();
+                    mVideoRv.scrollToPosition(mVideoListAdapter.getItemCount() - 1);
                 }
             }
 
@@ -135,12 +148,12 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
     }
 
     private void setAdapterItemClickEvent() {
-        mPhotoListAdapter.setOnItemClickListener(new OnItemClickListener() {
+        mVideoListAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(PhotoActivity.this, PhotoDetailActivity.class);
-                intent.putExtra(Constants.PHOTO_DETAIL, mPhotoListAdapter.getList().get(position).getUrl());
-                startActivity(view, intent);
+//                Intent intent = new Intent(PhotoActivity.this, PhotoDetailActivity.class);
+//                intent.putExtra(Constants.PHOTO_DETAIL, mPhotoListAdapter.getList().get(position).getUrl());
+//                startActivity(view, intent);
             }
         });
     }
@@ -158,72 +171,71 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
     }
 
     private void initPresenter() {
-        mPresenter = mPhotoPresenter;
+        mPresenter = mVideoPresenter;
         mPresenter.attachView(this);
         mPresenter.onCreate();
     }
 
     @Override
-    public void setPhotoList(List<PhotoGirl> photoGirls, @LoadNewsType.checker int loadType) {
-        switch (loadType) {
-            case LoadNewsType.TYPE_REFRESH_SUCCESS:
-                mSwipeRefreshLayout.setRefreshing(false);
-                mPhotoListAdapter.setList(photoGirls);
-                mPhotoListAdapter.notifyDataSetChanged();
-                checkIsEmpty(photoGirls);
-                mIsAllLoaded = false;
-                break;
-            case LoadNewsType.TYPE_REFRESH_ERROR:
-                mSwipeRefreshLayout.setRefreshing(false);
-                checkIsEmpty(photoGirls);
-                break;
-            case LoadNewsType.TYPE_LOAD_MORE_SUCCESS:
-                mPhotoListAdapter.hideFooter();
-                if (photoGirls == null || photoGirls.size() == 0) {
-                    mIsAllLoaded = true;
-                    Snackbar.make(mPhotoRv, getString(R.string.no_more), Snackbar.LENGTH_SHORT).show();
-                } else {
-                    mPhotoListAdapter.addMore(photoGirls);
-                }
-                break;
-            case LoadNewsType.TYPE_LOAD_MORE_ERROR:
-                mPhotoListAdapter.hideFooter();
-                break;
-        }
-    }
-
-    private void checkIsEmpty(List<PhotoGirl> photoGirls) {
-        if (photoGirls == null && mPhotoListAdapter.getList() == null) {
-            mPhotoRv.setVisibility(View.GONE);
-            mEmptyView.setVisibility(View.VISIBLE);
-
-        } else {
-            mPhotoRv.setVisibility(View.VISIBLE);
-            mEmptyView.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
     public void showProgress() {
-        mProgressBar.setVisibility(View.VISIBLE);
+
     }
 
     @Override
     public void hideProgress() {
-        mProgressBar.setVisibility(View.GONE);
+
     }
 
     @Override
     public void showMsg(String message) {
         mProgressBar.setVisibility(View.GONE);
         if (NetUtil.isNetworkAvailable()) {
-            Snackbar.make(mPhotoRv, message, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mVideoRv, message, Snackbar.LENGTH_LONG).show();
         }
     }
 
     @Override
     public void onRefresh() {
-        mPhotoPresenter.refreshData();
+        mVideoPresenter.refreshData();
+    }
+
+    @Override
+    public void setVideoList(List<Video> videos, @LoadNewsType.checker int loadType) {
+        switch (loadType) {
+            case LoadNewsType.TYPE_REFRESH_SUCCESS:
+                mSwipeRefreshLayout.setRefreshing(false);
+                mVideoListAdapter.setList(videos);
+                mVideoListAdapter.notifyDataSetChanged();
+                checkIsEmpty(videos);
+                mIsAllLoaded = false;
+                break;
+            case LoadNewsType.TYPE_REFRESH_ERROR:
+                mSwipeRefreshLayout.setRefreshing(false);
+                checkIsEmpty(videos);
+                break;
+            case LoadNewsType.TYPE_LOAD_MORE_SUCCESS:
+                mVideoListAdapter.hideFooter();
+                if (videos == null || videos.size() == 0) {
+                    mIsAllLoaded = true;
+                    Snackbar.make(mVideoRv, getString(R.string.no_more), Snackbar.LENGTH_SHORT).show();
+                } else {
+                    mVideoListAdapter.addMore(videos);
+                }
+                break;
+            case LoadNewsType.TYPE_LOAD_MORE_ERROR:
+                mVideoListAdapter.hideFooter();
+                break;
+        }
+    }
+
+    private void checkIsEmpty(List<Video> photoGirls) {
+        if (photoGirls == null && mVideoListAdapter.getList() == null) {
+            mVideoRv.setVisibility(View.GONE);
+            mEmptyView.setVisibility(View.VISIBLE);
+        } else {
+            mVideoRv.setVisibility(View.VISIBLE);
+            mEmptyView.setVisibility(View.GONE);
+        }
     }
 
     @OnClick({R.id.empty_view, R.id.fab})
@@ -231,11 +243,26 @@ public class PhotoActivity extends BaseActivity implements PhotoView, SwipeRefre
         switch (view.getId()) {
             case R.id.empty_view:
                 mSwipeRefreshLayout.setRefreshing(true);
-                mPhotoPresenter.refreshData();
+                mVideoPresenter.refreshData();
                 break;
             case R.id.fab:
-                mPhotoRv.getLayoutManager().scrollToPosition(0);
+                mVideoRv.getLayoutManager().scrollToPosition(0);
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (listVideoUtil.backFromFull()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        listVideoUtil.releaseVideoPlayer();
+        GSYVideoPlayer.releaseAllVideos();
+        super.onDestroy();
     }
 }

@@ -178,6 +178,9 @@ public class ApiConstants {
             case HostType.NEWS_DETAIL_HTML_PHOTO:
                 host = "http://kaku.com/";
                 break;
+            case HostType.KAI_YAN_VIDEO:
+                host = "http://baobab.kaiyanapp.com/";
+                break;
             default:
                 host = "";
                 break;

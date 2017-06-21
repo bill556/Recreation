@@ -3,9 +3,9 @@ package com.bill.recreation.di.component;
 import android.content.Context;
 
 
+import com.bill.recreation.di.scope.PerService;
 import com.bill.recreation.di.module.ServiceModule;
 import com.bill.recreation.di.scope.ContextLife;
-import com.bill.recreation.di.scope.PerService;
 
 import dagger.Component;
 

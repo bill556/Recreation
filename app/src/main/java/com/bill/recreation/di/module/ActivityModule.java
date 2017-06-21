@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 
 
-import com.bill.recreation.di.scope.ContextLife;
 import com.bill.recreation.di.scope.PerActivity;
+import com.bill.recreation.di.scope.ContextLife;
 
 import dagger.Module;
 import dagger.Provides;

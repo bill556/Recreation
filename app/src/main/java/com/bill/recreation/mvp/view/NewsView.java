@@ -1,7 +1,7 @@
 package com.bill.recreation.mvp.view;
 
-import com.bill.recreation.greendao.NewsChannelTable;
 import com.bill.recreation.mvp.view.base.BaseView;
+import com.bill.recreation.greendao.NewsChannelTable;
 
 import java.util.List;
 

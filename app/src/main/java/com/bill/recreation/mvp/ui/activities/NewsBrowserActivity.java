@@ -8,9 +8,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 import com.bill.recreation.R;
 import com.bill.recreation.common.Constants;
-import com.bill.recreation.mvp.ui.activities.base.BaseActivity;
 
 import butterknife.BindView;
 

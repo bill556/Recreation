@@ -3,10 +3,10 @@ package com.bill.recreation.di.component;
 import android.app.Activity;
 import android.content.Context;
 
-import com.bill.recreation.di.module.FragmentModule;
 import com.bill.recreation.di.scope.ContextLife;
-import com.bill.recreation.di.scope.PerFragment;
 import com.bill.recreation.mvp.ui.fragment.NewsListFragment;
+import com.bill.recreation.di.module.FragmentModule;
+import com.bill.recreation.di.scope.PerFragment;
 
 import dagger.Component;
 
